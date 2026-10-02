@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI-BIRD | AI 보안 프로그램</title>
-<meta name="description" content="브라우저 기록 속 개인정보를 AI로 찾아 완전 삭제·암호화하는 Windows 보안 프로그램, AI-BIRD">
+<meta name="description" content="인터넷 방문 기록 속 개인정보를 AI가 찾아 흔적 없이 지워주는 Windows 보안 프로그램, AI-BIRD">
 <link rel="icon" id="favicon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,37 +175,6 @@
   .cta-band h3 { font-size: clamp(22px, 3vw, 30px); font-weight: 900; letter-spacing: -.02em; line-height: 1.35; }
   .cta-band p { margin-top: 6px; opacity: .92; }
 
-  /* ---------- 작동 방식 (파이프라인) ---------- */
-  #pipeline .wrap { max-width: 1260px; }
-  .pipeline { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; list-style: none; }
-  .stage { display: flex; flex-direction: column; gap: 14px; }
-  .stage-head {
-    padding: 12px 16px; border-radius: 999px; text-align: center; color: #fff;
-    font-size: 14px; font-weight: 700; letter-spacing: .12em; background: var(--ink);
-  }
-  .stage.processing .stage-head { background: var(--pink); }
-  .stage.tasking .stage-head { background: #C2185B; }
-  .stage-body {
-    flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px;
-    padding: 18px 12px; border-radius: 24px; background: var(--bg-2); border: 1px solid var(--line); list-style: none;
-  }
-  .stage.processing .stage-body { background: var(--pink-soft); border-color: var(--pink-line); }
-  .step-item {
-    display: flex; align-items: center; gap: 12px; padding: 14px 12px; border-radius: 16px; background: #fff;
-    box-shadow: 0 8px 20px -14px rgba(30,20,40,.25); font-size: 15px; font-weight: 500; line-height: 1.4;
-  }
-  .step-item small { display: block; font-size: 13px; color: var(--ink-3); font-weight: 500; }
-  .step-item .ico {
-    width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center;
-    background: var(--ink); color: #fff;
-  }
-  .stage.processing .ico { background: var(--pink); }
-  .stage.tasking .ico { background: #C2185B; }
-  .step-item .ico svg { width: 20px; height: 20px; }
-  .flow-arrow { display: grid; place-items: center; color: var(--pink); padding-top: 46px; }
-  .flow-arrow svg { width: 22px; height: 22px; }
-  .pipe-note { margin-top: 28px; text-align: center; font-size: 14px; color: var(--ink-3); }
-
   /* ---------- 표정 스트립 ---------- */
   .moods-sec { padding-bottom: 60px; }
   .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
@@ -281,8 +250,6 @@
 
   /* ---------- 반응형 ---------- */
   @media (max-width: 1000px) {
-    .pipeline { grid-template-columns: 1fr auto 1fr; }
-    .flow-arrow:nth-child(4) { grid-column: 1 / -1; padding: 0; transform: rotate(90deg); }
     .cards { grid-template-columns: repeat(2, 1fr); }
     .cta-band { grid-template-columns: auto 1fr; }
     .cta-band .btn { grid-column: 1 / -1; justify-self: start; }
@@ -301,9 +268,6 @@
     .steps { grid-template-columns: 1fr; }
     .shots { grid-template-columns: 1fr; }
     .req { grid-template-columns: 1fr; }
-    .pipeline { grid-template-columns: 1fr; }
-    .flow-arrow { padding: 0; transform: rotate(90deg); }
-    .flow-arrow:nth-child(4) { grid-column: auto; }
     .cta-band { grid-template-columns: 1fr; text-align: center; padding: 28px 24px 32px; }
     .cta-band .char { margin: 0 auto; }
     .cta-band .btn { justify-self: center; }
@@ -345,7 +309,6 @@
     <ul>
       <li><a href="#about">소개</a></li>
       <li><a href="#features">기능</a></li>
-      <li><a href="#pipeline">작동 방식</a></li>
       <li><a href="#screenshots">스크린샷</a></li>
       <li><a href="#download" class="btn btn-pink btn-sm">다운로드</a></li>
     </ul>
@@ -359,7 +322,7 @@
       <div>
         <h1 id="hero-title" class="reveal">AI-<span class="accent">BIRD</span></h1>
         <p class="lead reveal d2">AI의 공격을,<br>AI로 먼저 막는다.</p>
-        <p class="sub reveal d2">브라우저 기록에 남은 내 개인정보, AI-BIRD가 찾아서 지켜드려요.<br>Chrome · Whale · Edge 기록을 분석하는 Windows용 AI 보안 프로그램</p>
+        <p class="sub reveal d2">인터넷 기록에 남은 내 개인정보, AI-BIRD가 찾아서 지켜드려요.<br>크롬 · 웨일 · 엣지 방문 기록을 살펴보는 Windows용 AI 보안 프로그램</p>
         <div class="hero-cta reveal d3">
           <a href="#download" class="btn btn-pink btn-lg">
             <svg width="20" height="20" aria-hidden="true"><use href="#i-windows"/></svg>
@@ -384,21 +347,21 @@
       <div class="sec-head reveal">
         <p class="eyebrow">ABOUT</p>
         <h2 id="about-title">공격하는 AI, <em>지키는 AI</em></h2>
-        <p>AI는 웹 기록 속 작은 단서만으로도 개인정보를 찾아낼 수 있어요.<br>AI-BIRD는 AI로 위험한 기록을 먼저 찾아 안전하게 없애요.</p>
+        <p>AI는 인터넷 기록 속 작은 단서만으로도 개인정보를 알아낼 수 있어요.<br>AI-BIRD는 AI로 위험한 기록을 먼저 찾아 안전하게 없애요.</p>
       </div>
       <div class="versus">
         <article class="side attack reveal d1">
           <div class="cutout"><img data-img="c2" alt="경고 표지판 앞에서 놀란 AI-BIRD"></div>
           <span class="tag">ATTACK</span>
           <h3>공격 AI</h3>
-          <p>브라우저에 남은 기록을 수집해 개인정보를 캐내요</p>
+          <p>인터넷 기록을 모아 내 개인정보를 캐내요</p>
         </article>
         <div class="vs reveal d2" aria-hidden="true">VS</div>
         <article class="side defend reveal d3">
           <div class="cutout"><img data-img="c4" alt="자물쇠 방패를 든 AI-BIRD"></div>
           <span class="tag">DEFENSE</span>
           <h3>방어 AI · AI-BIRD</h3>
-          <p>위험한 기록을 AI로 판별해 완전 삭제·암호화해요</p>
+          <p>위험한 기록을 찾아 흔적 없이 지우거나 잠가요</p>
         </article>
       </div>
     </div>
@@ -415,23 +378,23 @@
       <ul class="cards">
         <li class="card reveal">
           <div class="char"><img data-img="c6" alt="노트북으로 기록을 살펴보는 AI-BIRD"></div>
-          <h3>브라우저 기록 추출</h3>
-          <p>Chrome · Whale · Edge의 웹 기록 DB에서 정보를 꺼내요.</p>
+          <h3>방문 기록 확인</h3>
+          <p>크롬 · 웨일 · 엣지에 남은 인터넷 방문 기록을 모아요.</p>
         </li>
         <li class="card reveal d1">
           <div class="char"><img data-img="c5" alt="돋보기로 검사하는 AI-BIRD"></div>
-          <h3>개인정보 필터 · 마스킹</h3>
-          <p>PII·SPI(민감정보)를 먼저 가린 뒤 분석에 보내요.</p>
+          <h3>개인정보 가리기</h3>
+          <p>이름 · 연락처 같은 개인정보는 먼저 가린 뒤 살펴봐요.</p>
         </li>
         <li class="card reveal d2">
           <div class="char"><img data-img="c14" alt="노트북으로 분석하는 AI-BIRD"></div>
-          <h3>AI 위험도 분석</h3>
-          <p>AI(API)가 기록을 분석하고 위험 가중치를 산정해요.</p>
+          <h3>AI 위험도 확인</h3>
+          <p>AI가 기록을 살펴보고 얼마나 위험한지 알려줘요.</p>
         </li>
         <li class="card reveal d3">
           <div class="char"><img data-img="c8" alt="X 표시 문서를 든 AI-BIRD"></div>
-          <h3>완전 삭제 · 암호화</h3>
-          <p>NIST SP 800-88 기준으로 지우고, AES-256으로 잠가요.</p>
+          <h3>흔적 없이 삭제 · 잠금</h3>
+          <p>위험한 기록은 되살릴 수 없게 지우고, 남길 기록은 안전하게 잠가요.</p>
         </li>
       </ul>
 
@@ -453,54 +416,6 @@
           다운로드
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== 작동 방식 (보안 파이프라인) ===== -->
-  <section id="pipeline" aria-labelledby="pipe-title">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow">HOW IT WORKS</p>
-        <h2 id="pipe-title">기록 수집부터 보호까지, <em>한 번에</em></h2>
-        <p>AI-BIRD는 4단계 파이프라인으로 내 기록을 안전하게 지켜요.</p>
-      </div>
-      <ol class="pipeline">
-        <li class="stage inputs reveal">
-          <p class="stage-head">INPUTS</p>
-          <ul class="stage-body">
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><span>웹브라우저 DB<small>Chrome</small></span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><span>웹브라우저 DB<small>Whale</small></span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><span>웹브라우저 DB<small>Edge</small></span></li>
-          </ul>
-        </li>
-        <li class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></li>
-        <li class="stage processing reveal d1">
-          <p class="stage-head">PROCESSING</p>
-          <ul class="stage-body">
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span><span>웹 기록 정보 추출</span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></svg></span><span>PII / SPI 필터 · 마스킹</span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11v8H9l-3 3v-3H4zM15 9h5v8h-2v3l-3-3h-5v-2"/></svg></span><span>AI (API) 분석 요청</span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>위험 가중치 · 산정</span></li>
-          </ul>
-        </li>
-        <li class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></li>
-        <li class="stage tasking reveal d2">
-          <p class="stage-head">TASKING</p>
-          <ul class="stage-body">
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></span><span>완전 삭제<small>NIST SP 800-88</small></span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7zM14 3v4h4"/><circle cx="10.5" cy="15.5" r="2"/><path d="M12 14l3-3"/></svg></span><span>암호화<small>AES-256</small></span></li>
-          </ul>
-        </li>
-        <li class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></li>
-        <li class="stage outputs reveal d3">
-          <p class="stage-head">OUTPUTS</p>
-          <ul class="stage-body">
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7zM14 3v4h4M9 12h6M9 16h6"/></svg></span><span>AI 분석 리포트</span></li>
-            <li class="step-item"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><span>위협 제거 · 보호 완료</span></li>
-          </ul>
-        </li>
-      </ol>
-      <p class="pipe-note reveal">개인정보는 마스킹한 뒤에만 AI 분석에 보내져요.</p>
     </div>
   </section>
 
@@ -529,9 +444,9 @@
           <div class="frame">
             <div class="frame-bar" aria-hidden="true"><img data-img="icon" alt="">AI-BIRD<span class="ctrl"><span>─</span><span>☐</span><span>✕</span></span></div>
             <!-- TODO: 실제 스크린샷으로 교체 → src="images/screenshot-main.png" 추가 -->
-            <img class="ph" data-label="메인 화면 스크린샷" alt="AI-BIRD 메인 화면: 브라우저 기록 분석 대시보드 (스크린샷 준비 중)">
+            <img class="ph" data-label="메인 화면 스크린샷" alt="AI-BIRD 메인 화면 (스크린샷 준비 중)">
           </div>
-          <figcaption>메인 대시보드</figcaption>
+          <figcaption>메인 화면</figcaption>
         </figure>
         <figure class="shot reveal d1">
           <div class="frame">
@@ -580,7 +495,7 @@
 
         <dl class="req" aria-label="실행 환경 요구사항">
           <div><dt>운영체제</dt><dd>Windows 10 / 11 이상 (64-bit)</dd></div>
-          <div><dt>지원 브라우저</dt><dd>Chrome · Whale · Edge</dd></div>
+          <div><dt>지원 브라우저</dt><dd>크롬 · 웨일 · 엣지</dd></div>
           <div><dt>네트워크</dt><dd>인터넷 연결 (AI 분석 시)</dd></div>
           <div><dt>필요 구성요소</dt><dd>Visual C++ 재배포 패키지</dd></div>
         </dl>
@@ -638,12 +553,12 @@ const IMAGES = {
 
   // 표정 스트립 (상태 이름 / 설명 / 이미지 번호)
   const MOODS = [
-    ["기록 추출 중", "웹 기록을 살펴보고 있어요", "c6"],
-    ["필터링 중", "개인정보를 가리고 있어요", "c5"],
-    ["분석 중", "AI가 위험도를 계산해요", "c14"],
+    ["기록 확인 중", "방문 기록을 살펴보고 있어요", "c6"],
+    ["정보 가리는 중", "개인정보를 가리고 있어요", "c5"],
+    ["분석 중", "AI가 위험한지 살펴봐요", "c14"],
     ["위험 발견", "민감한 기록을 찾았어요!", "c3"],
-    ["완전 삭제", "복구할 수 없게 지웠어요", "c8"],
-    ["암호화", "AES-256으로 잠갔어요", "c4"],
+    ["흔적 삭제", "되살릴 수 없게 지웠어요", "c8"],
+    ["잠금 완료", "기록을 안전하게 잠갔어요", "c4"],
     ["리포트 완성", "분석 결과가 나왔어요", "c1"],
     ["보호 완료", "이제 안전해요", "c7"],
   ];
