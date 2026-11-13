@@ -184,7 +184,7 @@
   .mood .char { --ch: 160px; }
   .mood b { display: inline-block; margin-top: 12px; padding: 4px 12px; border-radius: 999px; background: var(--pink); color: #fff; font-size: 13px; }
   .mood p { margin-top: 6px; font-size: 14px; color: var(--ink-3); }
-  @keyframes slide { to { transform: translateX(calc(-50% - 9px)); } }
+  @keyframes slide { to { transform: translateX(calc(-25% - 4.5px)); } }   /* 4번 반복 중 1세트만큼 이동 */
 
   /* ---------- 스크린샷 ---------- */
   .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -558,9 +558,7 @@ const IMAGES = {
 
   // 표정 스트립 (상태 이름 / 설명 / 이미지 번호)
   const MOODS = [
-    ["기록 확인 중", "방문 기록을 모으고 있어요", "c6"],
     ["분석 중", "AI가 기록을 살펴보고 있어요", "walk"],
-    ["위험 발견", "민감한 기록을 찾았어요!", "c3"],
     ["분석 결과", "얼마나 위험한지 알려줄게요", "analysis"],
     ["삭제 중", "되살릴 수 없게 지우고 있어요", "trash"],
     ["잠금 완료", "기록을 안전하게 잠갔어요", "lock"],
@@ -570,7 +568,8 @@ const IMAGES = {
   const track = document.getElementById("moods");
   const html = MOODS.map(([t, d, k]) =>
     `<li class="mood"><div class="char"><img src="${IMAGES[k]}" alt="${t} 상태의 AI-BIRD"></div><b>${t}</b><p>${d}</p></li>`).join("");
-  track.innerHTML = html + html.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');   // 무한 스크롤용 복제
+  const clone = html.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+  track.innerHTML = html + clone + clone + clone;   // 넓은 화면에서도 끊기지 않도록 4번 반복
 
   // 스크린샷 플레이스홀더: src가 없는 이미지에 핑크 톤 SVG를 채워 넣음
   document.querySelectorAll("img.ph:not([src])").forEach(img => {
