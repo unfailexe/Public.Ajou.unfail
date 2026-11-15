@@ -145,7 +145,8 @@
 
   /* ---------- 기능 카드 ---------- */
   .features { background: var(--bg-2); }
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; list-style: none; }
+  .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; }
+  .cards .card { flex: 0 0 calc((100% - 40px) / 3); }
   .card {
     background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 14px 14px 28px;
     transition: transform .25s, border-color .25s, box-shadow .25s;
@@ -250,7 +251,7 @@
 
   /* ---------- 반응형 ---------- */
   @media (max-width: 1000px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
+    .cards .card { flex-basis: calc((100% - 20px) / 2); }
     .cta-band { grid-template-columns: auto 1fr; }
     .cta-band .btn { grid-column: 1 / -1; justify-self: start; }
   }
@@ -274,7 +275,7 @@
   }
   @media (max-width: 520px) {
     .wrap { padding: 0 16px; }
-    .cards { grid-template-columns: 1fr; }
+    .cards .card { flex-basis: 100%; }
     .bubble { font-size: 12.5px; padding: 9px 12px; }
     .bubble-1 { left: -4%; } .bubble-2 { right: -4%; }
     .dl-card { padding: 20px 18px 40px; border-radius: 28px; }
@@ -377,24 +378,29 @@
 
       <ul class="cards">
         <li class="card reveal">
-          <div class="char"><img data-img="walk" alt="종종걸음으로 기록을 살피는 AI-BIRD"></div>
-          <h3>AI 분석 중</h3>
-          <p>크롬 · 웨일 · 엣지 방문 기록을 AI가 살펴봐요. 개인정보는 가린 채로요.</p>
-        </li>
-        <li class="card reveal d1">
           <div class="char"><img data-img="analysis" alt="돋보기로 분석 화면을 보는 AI-BIRD"></div>
           <h3>한눈에 보는 분석 결과</h3>
-          <p>어떤 기록이 얼마나 위험한지 그래프로 쉽게 보여줘요.</p>
+          <p>PC에 어떤 개인 · 민감정보가 남아있는지 대시보드로 쉽게 보여줘요.</p>
+        </li>
+        <li class="card reveal d1">
+          <div class="char"><img data-img="walk" alt="종종걸음으로 기록을 분석하는 AI-BIRD"></div>
+          <h3>AI 분석</h3>
+          <p>사용자 맞춤형 보안 진단 리포트를 AI가 자세하게 작성해줘요. 민감정보는 가린 채로 만들어지니 안심하세요.</p>
         </li>
         <li class="card reveal d2">
+          <div class="char"><img data-img="lock" alt="자물쇠 방패를 들고 윙크하는 AI-BIRD"></div>
+          <h3>안전하게 보호</h3>
+          <p>남겨둘 기록은 나만 알아볼 수 있게 암호화해요.</p>
+        </li>
+        <li class="card reveal d3">
           <div class="char"><img data-img="trash" alt="기록을 휴지통에 버리는 AI-BIRD"></div>
           <h3>흔적 없이 삭제</h3>
           <p>위험한 기록은 되살릴 수 없게 깨끗이 지워요.</p>
         </li>
-        <li class="card reveal d3">
-          <div class="char"><img data-img="lock" alt="자물쇠 방패를 들고 윙크하는 AI-BIRD"></div>
-          <h3>안전하게 잠금</h3>
-          <p>남겨둘 기록은 나만 열어볼 수 있게 잠가요.</p>
+        <li class="card reveal d1">
+          <div class="char"><img data-img="c1" alt="체크 표시 문서를 든 AI-BIRD"></div>
+          <h3>웹 서핑 안전 수칙</h3>
+          <p>안전한 웹 서핑을 위한 8가지 수칙을 실천하고, 소중한 개인정보를 지켜봐요.</p>
         </li>
       </ul>
 
@@ -558,10 +564,10 @@ const IMAGES = {
 
   // 표정 스트립 (상태 이름 / 설명 / 이미지 번호)
   const MOODS = [
-    ["분석 중", "기록을 분석하고 있어요", "walk"],
     ["분석", "얼마나 위험한지 알려줄게요", "analysis"],
-    ["삭제", "되살릴 수 없게 지워요", "trash"],
+    ["분석 중", "기록을 분석하고 있어요", "walk"],
     ["보호", "기록을 안전하게 암호화했어요", "lock"],
+    ["삭제", "되살릴 수 없게 지워요", "trash"],
     ["보호 완료", "이제 안전해요", "c7"],
   ];
   const track = document.getElementById("moods");
