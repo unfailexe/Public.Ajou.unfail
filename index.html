@@ -33,8 +33,7 @@
   .site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: rgba(255,255,255,.85); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
   .site-header.scrolled { border-color: var(--line); }
   .nav { height: 64px; display: flex; align-items: center; justify-content: space-between; }
-  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
-  .logo img { width: 30px; height: 30px; border-radius: 8px; }
+  .logo { font-size: 22px; font-weight: 650; letter-spacing: -.04em; color: var(--ink); }   /* 히어로 제목과 같은 폰트 · 두께 */
   .nav ul { list-style: none; display: flex; align-items: center; gap: 28px; font-size: 15px; color: var(--ink-2); }
   .nav ul a:not(.btn):hover { color: var(--ink); }
 
@@ -341,7 +340,7 @@
 <body>
 <header class="site-header" id="header">
   <nav class="wrap nav" aria-label="주요 메뉴">
-    <a href="#top" class="logo" aria-label="AI-BIRD 홈"><img data-img="icon" alt=""></a>
+    <a href="#top" class="logo">AI-BIRD</a>
     <ul>
       <li><a href="#tour">미리보기</a></li>
       <li><a href="#features">기능</a></li>
@@ -355,7 +354,7 @@
     <div class="wrap">
       <p class="eyebrow reveal">AI-BIRD for Windows</p>
       <h1 class="reveal">AI의 공격에 맞서는,<br><span>AI 웹 기록 보안 진단.</span></h1>
-      <p class="sub reveal">웹 접속 · 검색 기록에 남은 개인정보를 AI로 진단하고,<br>기록을 보호하거나 복구할 수 없게 삭제합니다.</p>
+      <p class="sub reveal">웹 접속 · 검색 기록에 남은 개인정보를 AI로 진단하고, <br>기록을 보호하거나 복구할 수 없게 삭제합니다.</p>
       <div class="hero-cta reveal">
         <a href="#download" class="btn btn-dark">Windows용 무료 다운로드</a>
         <a href="#tour" class="btn btn-line">미리보기</a>
